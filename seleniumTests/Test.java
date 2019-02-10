@@ -7,9 +7,9 @@ import org.openqa.selenium.By;
 
 public class Test {
 	
-	public static final String WEBDRIVER_PATH = "C:\\Users\\Study\\Downloads\\chromedriver_win32\\chromedriver.exe";
-	public static final String DELIVERY_URL = "https://www.delivery-club.ru";
-	public static final String ADDRESS_STR = "Петрозаводск, улица Германа Титова, 11";
+    public static final String WEBDRIVER_PATH = "C:\\Users\\Study\\Downloads\\chromedriver_win32\\chromedriver.exe";
+    public static final String DELIVERY_URL = "https://www.delivery-club.ru";
+    public static final String ADDRESS_STR = "РџРµС‚СЂРѕР·Р°РІРѕРґСЃРє, СѓР»РёС†Р° Р“РµСЂРјР°РЅР° РўРёС‚РѕРІР°, 11";
 	
     public static void main(String[] args) throws InterruptedException {
     	
@@ -19,24 +19,24 @@ public class Test {
 //        1. Open https://www.delivery-club.ru/
         driver.get(DELIVERY_URL);
         
-//        2. Enter the address “Петрозаводск, улица Германа Титова, 11” in the field “ВВЕДИТЕ АДРЕС ДОСТАВКИ”
+//        2. Enter the address вЂњРџРµС‚СЂРѕР·Р°РІРѕРґСЃРє, СѓР»РёС†Р° Р“РµСЂРјР°РЅР° РўРёС‚РѕРІР°, 11вЂќ in the field вЂњР’Р’Р•Р”РРўР• РђР”Р Р•РЎ Р”РћРЎРўРђР’РљРвЂќ
         WebElement addrElement = driver.findElement(By.id("user-addr__input"));
         addrElement.click();
         addrElement.clear();
         addrElement.sendKeys(ADDRESS_STR);
         
-//        3. Click the button “Найти рестораны”
+//        3. Click the button вЂњРќР°Р№С‚Рё СЂРµСЃС‚РѕСЂР°РЅС‹вЂќ
         WebElement addrButtonElement = driver.findElement(By.className("user-addr__label__btn"));
         addrButtonElement.click();       
         Thread.sleep(2000);
         
-//        4. In the filter block, set the checkbox "Здоровая еда”
-//        I use "Фастфуд" cause "Здоровая еда” have different behavior after 22:00
-        WebElement checkBoxElement = driver.findElement(By.xpath("//input[@value='Фастфуд']/.."));
+//        4. In the filter block, set the checkbox "Р—РґРѕСЂРѕРІР°СЏ РµРґР°вЂќ
+//        I use "Р¤Р°СЃС‚С„СѓРґ" cause "Р—РґРѕСЂРѕРІР°СЏ РµРґР°вЂќ have different behavior after 22:00
+        WebElement checkBoxElement = driver.findElement(By.xpath("//input[@value='Р¤Р°СЃС‚С„СѓРґ']/.."));
         checkBoxElement.click();
         Thread.sleep(2000);
         
-//        5. In the filter block, set the switch "Заказ” to “до 500
+//        5. In the filter block, set the switch "Р—Р°РєР°Р·вЂќ to вЂњРґРѕ 500
         WebElement radioButtonElement = driver.findElement(By.xpath("//input[@name='min_sum'][@value='500']/.."));
         radioButtonElement.click();
         Thread.sleep(2000);
@@ -46,8 +46,8 @@ public class Test {
         cardElement.click();  
 //        Thread.sleep(2000);  
         
-//        7. Click the “Отзывы” tab
-        WebElement reviewsLinkElement = driver.findElement(By.xpath("//a[contains(text(), 'Отзывы')]"));
+//        7. Click the вЂњРћС‚Р·С‹РІС‹вЂќ tab
+        WebElement reviewsLinkElement = driver.findElement(By.xpath("//a[contains(text(), 'РћС‚Р·С‹РІС‹')]"));
         reviewsLinkElement.click();
         
 //        8. Need to get the information about the first feedback - the text of the feedback
